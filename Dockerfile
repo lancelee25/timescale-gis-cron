@@ -19,7 +19,7 @@ RUN set -ex \
     && apk add --no-cache --virtual .postgis-deps --repository http://nl.alpinelinux.org/alpine/edge/testing \
         geos \
         gdal \
-        proj \
+        proj4 \
         protobuf-c \
     && apk add --no-cache --virtual .build-deps --repository http://nl.alpinelinux.org/alpine/edge/testing \
         postgresql-dev \
@@ -28,7 +28,7 @@ RUN set -ex \
         geos-dev \
         libxml2-dev \
         gdal-dev \
-        proj-dev \
+        proj4-dev \
         protobuf-c-dev \
         json-c-dev \
         gcc g++ clang \
