@@ -4,7 +4,7 @@ FROM timescale/timescaledb:${TS_VERSION_TAG}-${PG_VERSION_TAG}
 
 MAINTAINER Timescale https://www.timescale.com
 ARG POSTGIS_VERSION
-ENV POSTGIS_VERSION ${POSTGIS_VERSION:-2.5.3}
+ENV POSTGIS_VERSION ${POSTGIS_VERSION:3.0.0rc2}
 
 RUN set -ex \
     && apk add --no-cache --virtual .fetch-deps \
@@ -19,7 +19,7 @@ RUN set -ex \
     && apk add --no-cache --virtual .postgis-deps --repository http://nl.alpinelinux.org/alpine/edge/testing \
         geos \
         gdal \
-        proj4 \
+        proj \
         protobuf-c \
     && apk add --no-cache --virtual .build-deps --repository http://nl.alpinelinux.org/alpine/edge/testing \
         postgresql-dev \
@@ -28,7 +28,7 @@ RUN set -ex \
         geos-dev \
         libxml2-dev \
         gdal-dev \
-        proj4-dev \
+        proj-dev \
         protobuf-c-dev \
         json-c-dev \
         gcc g++ clang \
