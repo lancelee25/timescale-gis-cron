@@ -37,6 +37,7 @@ RUN set -ex \
     && ./configure \
     && make \
     && make install \
+    && cd /tmp \
     && wget http://download.osgeo.org/postgis/source/postgis-${POSTGIS_VERSION}.tar.gz -O - | tar -xz \
     && chown root:root -R postgis-${POSTGIS_VERSION} \
     && cd /tmp/postgis-${POSTGIS_VERSION} \
