@@ -50,7 +50,7 @@ RUN set -ex \
     && cd / \
     \
     && rm -rf /tmp/postgis-${POSTGIS_VERSION} \
-    && rm -rf /tmp/proj-4.9.3
+    && rm -rf /tmp/proj-4.9.3 \
 #    && cd /tmp && wget https://codeload.github.com/citusdata/pg_cron/tar.gz/v1.2.0 -O - |tar -xz \
 #    && cd pg_cron-1.2.0 \
 #    && export PATH=/usr/local/bin:$PATH \
