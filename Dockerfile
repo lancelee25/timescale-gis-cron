@@ -52,10 +52,10 @@ RUN set -ex \
     \
     && rm -rf /tmp/postgis-${POSTGIS_VERSION} \
     && rm -rf /tmp/proj-4.9.3 \
-#    && cd /tmp && wget https://codeload.github.com/citusdata/pg_cron/tar.gz/v1.2.0 -O - |tar -xz \
-#    && cd pg_cron-1.2.0 \
-#    && export PATH=/usr/local/bin:$PATH \
-#    && make && PATH=$PATH make install \
-#    && cd / && rm -rf /tmp/pg_cron-1.2.0 \
+    && cd /tmp && wget https://codeload.github.com/citusdata/pg_cron/tar.gz/v1.2.0 -O - |tar -xz \
+    && cd pg_cron-1.2.0 \
+    && export PATH=/usr/local/bin:$PATH \
+    && make && make install \
+    && cd / && rm -rf /tmp/pg_cron-1.2.0 \
     && apk del .fetch-deps .build-deps
     
