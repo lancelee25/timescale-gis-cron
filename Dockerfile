@@ -1,15 +1,9 @@
 FROM postgres:11
 MAINTAINER Lance Lee <linanjun@163.com>
 
-ENV POSTGIS_MAJOR 2.5
-ENV POSTGIS_VERSION 2.5.3+dfsg-1~exp1.pgdg90+1
-
 RUN apt-get update \
-      && apt-cache showpkg postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR \
       && apt-get install -y --no-install-recommends \
-           postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR=$POSTGIS_VERSION \
-           postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts=$POSTGIS_VERSION \
-           postgis=$POSTGIS_VERSION \
+           postgis \
            postgresql-11-cron \
       && sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list" \
       && wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add - \
