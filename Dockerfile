@@ -3,10 +3,10 @@ MAINTAINER Lance Lee <linanjun@163.com>
 
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
-           curl lsb-release postgis \
+           wget lsb-release postgis \
            postgresql-11-cron \
       && sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list" \
-      && curl https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add - \
+      && wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add - \
       && apt-get update \
       # Now install appropriate package for PG version
       && apt-get -y install timescaledb-postgresql-11 \
