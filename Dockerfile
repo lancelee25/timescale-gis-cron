@@ -16,6 +16,8 @@ RUN set -ex \
                 --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
                 libressl2.7-libcrypto \
                 libcrypto1.1 \
+                musl \
+                musl-dev \
     && apk add --no-cache --virtual .postgis-deps --repository http://nl.alpinelinux.org/alpine/edge/testing \
         geos \
         gdal \
