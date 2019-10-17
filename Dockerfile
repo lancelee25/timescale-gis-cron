@@ -3,7 +3,7 @@ MAINTAINER Lance Lee <linanjun@163.com>
 
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
-           curl postgis \
+           curl lsb-release postgis \
            postgresql-11-cron \
       && sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list" \
       && curl https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add - \
