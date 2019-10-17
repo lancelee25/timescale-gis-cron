@@ -6,7 +6,7 @@ RUN apt-get update \
            wget lsb-release postgis \
            postgresql-11-cron \
       && sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list" \
-      && wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add -
+      && wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add - \
       && apt-get update \
       # Now install appropriate package for PG version
       && apt-get install timescaledb-postgresql-11 \
