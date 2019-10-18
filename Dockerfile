@@ -4,7 +4,7 @@ MAINTAINER Lance Lee <linanjun@163.com>
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
-           curl lsb-release postgis apt-transport-https \
+           curl gnupg lsb-release postgis apt-transport-https \
            postgresql-11-cron \
       && sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list" \
       && curl -s https://packagecloud.io/install/repositories/timescale/timescaledb/script.deb.sh | bash \
