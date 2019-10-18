@@ -3,7 +3,7 @@ MAINTAINER Lance Lee <linanjun@163.com>
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
-      && apt-get install -y --no-install-recommends \
+      && apt-get install -y \
            wget gnupg lsb-release postgis apt-transport-https debian-archive-keyring  \
            postgresql-11-cron \
       && sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list" \
