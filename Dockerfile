@@ -1,12 +1,13 @@
 FROM postgres:11
 MAINTAINER Lance Lee <linanjun@163.com>
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
            wget lsb-release postgis \
            postgresql-11-cron \
       && sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list" \
-      && wget --quiet -O /tmp/timescale.gpg https://packagecloud.io/timescale/timescaledb/gpgkey \
+      && wget --quiet -O /tmp/timescale.gpg https://packagecloud.io/timescale/timescaledb/gpgkey --no-check-certificate \
       && apt-key add /tmp/timescale.gpg \
       && apt-get update \
       # Now install appropriate package for PG version
@@ -17,5 +18,4 @@ RUN apt-get update \
       
 
 RUN mkdir -p /docker-entrypoint-initdb.d
-COPY ./initdb-ts-gis-cron.sh /docker-entrypoint-initdb.d/postgis.sh
-COPY ./update-ts-gis-cron.sh /usr/local/bin
+COPY ./docker-entrypoint-initdb.d/* /docker-entrypoint-initdb.d/
