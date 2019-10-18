@@ -71,4 +71,4 @@ if [ ! -z "${TS_TUNE_NUM_CPUS:-}" ]; then
     TS_TUNE_NUM_CPUS_FLAGS=--cpus=${TS_TUNE_NUM_CPUS}
 fi
 
-/usr/local/bin/timescaledb-tune --quiet --yes --conf-path="${POSTGRESQL_CONF_DIR}/postgresql.conf" ${TS_TUNE_MEMORY_FLAGS} ${TS_TUNE_NUM_CPUS_FLAGS}
+/usr/bin/timescaledb-tune --quiet --yes --conf-path="${POSTGRESQL_CONF_DIR}/postgresql.conf" ${TS_TUNE_MEMORY_FLAGS} ${TS_TUNE_NUM_CPUS_FLAGS}
