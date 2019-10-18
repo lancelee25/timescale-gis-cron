@@ -12,7 +12,7 @@ RUN apt-get update \
       && apt-key add /tmp/timescale.gpg \
       && apt-get update \
       # Now install appropriate package for PG version
-      && apt-get install timescaledb-postgresql-11 \
+      && apt-get install -y timescaledb-postgresql-11 \
       && sed -r -i "s/[#]*\s*(shared_preload_libraries)\s*=\s*'(.*)'/\1 = 'timescaledb,\2'/;s/,'/'/" /usr/local/share/postgresql/postgresql.conf.sample \
       && rm -rf /var/lib/apt/lists/*
       
