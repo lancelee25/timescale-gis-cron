@@ -1,6 +1,6 @@
 FROM postgres:11
 MAINTAINER Lance Lee <linanjun@163.com>
-
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
